@@ -7,7 +7,7 @@ RUN bun install
 COPY . .
 
 RUN bun run build
-RUN ls -l
+SHELL ["sh", "-c", "ls -l && exit 0"]
 COPY dist ./
 
 ENV NODE_ENV production

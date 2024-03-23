@@ -7,6 +7,7 @@ RUN bun install
 COPY . .
 
 RUN bun run build
+RUN ls -l
 COPY dist ./
 
 ENV NODE_ENV production

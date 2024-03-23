@@ -4,8 +4,10 @@ WORKDIR /usr/src/app
 
 COPY package*.json bun.lockb ./
 RUN bun install
-RUN bun run build
 COPY . .
+
+RUN bun run build
+COPY dist ./
 
 ENV NODE_ENV production
 

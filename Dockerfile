@@ -1,4 +1,4 @@
-FROM oven/bun AS builder
+FROM oven/bun
 
 WORKDIR /usr/src/app
 
@@ -6,15 +6,9 @@ COPY package*.json bun.lockb ./
 RUN bun install
 COPY . .
 
-RUN bun run build
+# RUN bun run build
+# COPY dist ./
 
-
-FROM oven/bun
-
-WORKDIR /usr/src/app
-
-COPY --from=builder /dist ./
-
-ENV NODE_ENV production
+# ENV NODE_ENV production
 
 CMD bun start

@@ -8,4 +8,6 @@ COPY . .
 
 RUN bun run build
 
+RUN bun run prisma generate
+
 CMD bun start

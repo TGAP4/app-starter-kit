@@ -6,7 +6,7 @@ builder.queryFields((t) => ({
     args: {
       authorId: t.arg.int(),
     },
-    resolve: (query, root, args, context, info) => {
+    resolve: (query, root, args, ctx, info) => {
       return prisma.post.findMany({
         ...query,
         ...(args.authorId && {where: { authorId: args.authorId }}),

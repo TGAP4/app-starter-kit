@@ -7,8 +7,8 @@ import {GraphQLContext} from '../context';
 export const prisma = new PrismaClient({});
 
 const builder = new SchemaBuilder<{
-  PrismaTypes: PrismaTypes;
   Context: GraphQLContext
+  PrismaTypes: PrismaTypes;
 }>({
   plugins: [PrismaPlugin],
   prisma: {

@@ -1,15 +1,25 @@
 import builder, {prisma} from '../builder'
 
 builder.mutationFields((t) => ({
-  updateUser: 
+  createPost: 
       t.prismaField({
-        type: 'User',
+        type: 'Post',
         args: {
-          firstName: t.arg.string(),
-          lastName: t.arg.string()
+          title: t.arg.string({required: true}),
+          content: t.arg.string({required: true}),
+          userId: t.arg.int({required: true})
         },
-        resolve: async (parent, a, args, info) =>
-          args.firstName
-      })
-}));
+        resolve: async (query, root, args, ctx, info) => {
+const post = await prisma.post.create({
+  data: {
+    title: args.title,
+    content: args.content,
+    author: {
+      connect: { id: args.userId },
+    },
+  },
+        })
+        return post
+      
+}})}));
 

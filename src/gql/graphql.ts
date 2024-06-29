@@ -17,12 +17,21 @@ export type Scalars = {
 
 export type Mutation = {
   __typename?: 'Mutation';
+  createPost: Post;
   updateUser: User;
+};
+
+
+export type MutationCreatePostArgs = {
+  content: Scalars['String']['input'];
+  title: Scalars['String']['input'];
+  userId: Scalars['Int']['input'];
 };
 
 
 export type MutationUpdateUserArgs = {
   firstName?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['Int']['input'];
   lastName?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -37,7 +46,13 @@ export type Post = {
 
 export type Query = {
   __typename?: 'Query';
+  posts: Array<Post>;
   user: User;
+};
+
+
+export type QueryPostsArgs = {
+  authorId?: InputMaybe<Scalars['Int']['input']>;
 };
 
 

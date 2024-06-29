@@ -6,7 +6,7 @@ builder.queryFields((t) => ({
     args: {
       id: t.arg.int({ required: true }),
     },
-    resolve: (query, root, args, context, info) =>
+    resolve: (query, root, args, ctx, info) =>
       prisma.user.findUniqueOrThrow({
         ...query,
         where: { id: args.id },

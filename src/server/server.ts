@@ -1,11 +1,15 @@
 import express from "express";
 import { createYoga } from 'graphql-yoga'
-import {schema} from './schema';
+import schema from './schema/schema';
 import ViteExpress from "vite-express";
+import {createContext} from "./context";
 
 const app = express();
 
-const yoga = createYoga({schema})
+const yoga = createYoga({
+  schema, 
+  context: createContext
+})
 
 app.use(yoga.graphqlEndpoint, yoga)
 

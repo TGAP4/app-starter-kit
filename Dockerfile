@@ -12,6 +12,7 @@ RUN bun run prisma generate
 
 COPY . .
 
+RUN bun run prisma generate
 
 RUN bun run build
 

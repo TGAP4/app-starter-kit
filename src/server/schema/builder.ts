@@ -16,6 +16,13 @@ initPrisma().catch((e) => {
   console.error('Failed to initialize Prisma Client', e);
 });
 
+async function getPrisma() {
+  await initPrisma();
+  return prisma;
+}
+
+export { getPrisma };
+
 // export const prisma = new PrismaClient({});
 
 const builder = new SchemaBuilder<{

@@ -1,4 +1,4 @@
-FROM oven/bun:debian
+FROM imbios/bun-node
 
 WORKDIR /usr/src/app
 

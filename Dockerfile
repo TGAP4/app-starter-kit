@@ -16,6 +16,4 @@ RUN bun run prisma generate
 
 RUN bun run build
 
-RUN bun start
-
-# CMD bun start
+CMD bun start

@@ -10,7 +10,7 @@ generator client {
 
 generator pothos {
   provider     = "prisma-pothos-types"
-  clientOutput = "node_modules/.prisma/client"
+  clientOutput = "@prisma/client"
 }
 
 datasource db {

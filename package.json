@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "concurrently \"nodemon -w src/server -x tsx src/server/server.ts\" \"bun run codegen\"",
-"start": "echo 'Generating Prisma Client...' && bun run prisma generate || echo 'Failed to generate Prisma Client.' && sleep 5 && echo 'Setting NODE_ENV to production...' && export NODE_ENV=production && echo 'Starting server...' && bun src/server/server.ts",
+"start": "echo 'Generating Prisma Client...' && bun run prisma generate || (echo 'Failed to generate Prisma Client.' && false) && sleep 5 && ls node_modules/@prisma/client && echo 'Setting NODE_ENV to production...' && export NODE_ENV=production && echo 'Starting server...' && bun src/server/server.ts",
     "build": "vite build",
     "codegen": "nodemon -w src/server -e ts,js -x graphql-codegen",
     "migrate": "prisma migrate dev"

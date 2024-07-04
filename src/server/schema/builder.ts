@@ -18,6 +18,7 @@ initPrisma().catch((e) => {
 
 async function prisma() {
   await initPrisma();
+  console.log(prismaa)
   return prismaa;
 }
 

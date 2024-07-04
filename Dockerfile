@@ -16,7 +16,7 @@ COPY . .
 RUN bun run build
 
 
-RUN ls -la /usr/src/app/
+RUN ls -la /usr/src/app/prisma/
 
 
 CMD bun start

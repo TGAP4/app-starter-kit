@@ -1,3 +1,4 @@
+# Node is needed by Prisma
 FROM imbios/bun-node
 
 WORKDIR /usr/src/app
@@ -8,16 +9,8 @@ RUN bun install
 
 COPY . .
 
-RUN bun run prisma generate
+# RUN bun run prisma generate
 
 RUN bun run build
 
-CMD ["bun", "start"]
-
-
-# COPY prisma ./prisma
-
-# COPY prisma ./prisma/
-
-# RUN bun run prisma generate
-# RUN bun run prisma migrate deploy
+CMD bun start

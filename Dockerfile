@@ -6,15 +6,17 @@ COPY package*.json bun.lockb ./
 
 RUN bun install
 
-COPY prisma ./prisma/
-RUN bun run prisma generate && ls -la node_modules/.prisma/client
+# COPY prisma ./prisma/
 
 COPY . .
 
-RUN bun run build && ls -la dist
+# RUN bun run prisma generate
 
 
-# RUN ls -la /usr/src/app/node_modules/.prisma/client/
+RUN bun run build
+
+
+RUN ls -la /usr/src/app/
 
 
 CMD bun start

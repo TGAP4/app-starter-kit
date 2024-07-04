@@ -1,10 +1,22 @@
 import SchemaBuilder from '@pothos/core';
 import PrismaPlugin from '@pothos/plugin-prisma';
 import type PrismaTypes from '@pothos/plugin-prisma/generated';
-import { PrismaClient } from '@prisma/client';
+// import { PrismaClient } from '@prisma/client';
 import {GraphQLContext} from '../context';
+import {PrismaClient} from '@prisma/client/extension';
 
-export const prisma = new PrismaClient({});
+let prisma: PrismaClient;
+
+async function initPrisma() {
+  const { PrismaClient } = await import('@prisma/client');
+  prisma = new PrismaClient();
+}
+
+initPrisma().catch((e) => {
+  console.error('Failed to initialize Prisma Client', e);
+});
+
+// export const prisma = new PrismaClient({});
 
 const builder = new SchemaBuilder<{
   Context: GraphQLContext

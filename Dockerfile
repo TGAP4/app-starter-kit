@@ -6,8 +6,6 @@ COPY package*.json bun.lockb ./
 
 RUN bun install
 
-RUN bun add -g prisma
-
 # COPY prisma ./prisma/
 
 RUN bun run prisma generate

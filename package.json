@@ -8,7 +8,8 @@
     "start": "NODE_ENV=production bun src/server/server.ts",
     "build": "vite build",
     "codegen": "nodemon -w src/server -e ts,js -x graphql-codegen",
-    "migrate": "prisma migrate dev"
+    "migrate": "prisma migrate dev",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@pothos/core": "^3.41.1",

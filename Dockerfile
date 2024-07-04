@@ -1,5 +1,4 @@
-# Stage 1: Build
-FROM oven/bun as builder
+FROM oven/bun:debian
 
 WORKDIR /usr/src/app
 
@@ -10,14 +9,8 @@ RUN bun install
 COPY . .
 
 RUN bun run prisma generate
+
 RUN bun run build
-
-# Stage 2: Production
-FROM oven/bun
-
-WORKDIR /usr/src/app
-
-COPY --from=builder /usr/src/app /usr/src/app
 
 CMD ["bun", "start"]
 

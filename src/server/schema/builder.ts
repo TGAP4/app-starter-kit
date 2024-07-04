@@ -1,7 +1,7 @@
 import SchemaBuilder from '@pothos/core';
 import PrismaPlugin from '@pothos/plugin-prisma';
 import type PrismaTypes from '@pothos/plugin-prisma/generated';
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from '../../../node_modules/.prisma/client';
 import {GraphQLContext} from '../context';
 
 export const prisma = new PrismaClient({});

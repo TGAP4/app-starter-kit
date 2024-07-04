@@ -1,4 +1,5 @@
-FROM oven/bun
+# Stage 1: Build
+FROM oven/bun as builder
 
 WORKDIR /usr/src/app
 
@@ -9,11 +10,16 @@ RUN bun install
 COPY . .
 
 RUN bun run prisma generate
-
-ENV NODE_ENV=production
 RUN bun run build
 
-CMD bun start
+# Stage 2: Production
+FROM oven/bun
+
+WORKDIR /usr/src/app
+
+COPY --from=builder /usr/src/app /usr/src/app
+
+CMD ["bun", "start"]
 
 
 # COPY prisma ./prisma

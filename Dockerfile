@@ -17,4 +17,6 @@ RUN bun run prisma generate
 
 RUN bun run build
 
+RUN run prisma migrate deploy
+
 CMD bun start

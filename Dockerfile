@@ -12,4 +12,7 @@ RUN bunx prisma generate
 
 RUN bun run build
 
+RUN ls -la /usr/src/app/node_modules/.prisma/client/
+
+
 CMD bun start

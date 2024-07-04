@@ -10,13 +10,10 @@ RUN bun install
 
 COPY . .
 
-# RUN bun run prisma generate
-
+RUN bun run prisma generate
 
 RUN bun run build
 
-
-RUN bun run prisma generate
-
+RUN NODE_ENV=production bun src/server/server.ts
 
 # CMD bun start

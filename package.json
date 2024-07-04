@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "concurrently \"nodemon -w src/server -x tsx src/server/server.ts\" \"bun run codegen\"",
 "start": "prisma generate && NODE_ENV=production bun src/server/server.ts",
-    "build": "prisma generate && vite build",
+    "build": "vite build",
     "codegen": "nodemon -w src/server -e ts,js -x graphql-codegen",
     "migrate": "prisma migrate dev"
   },

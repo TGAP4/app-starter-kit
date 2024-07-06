@@ -1,5 +1,7 @@
 import express from "express";
 import { createYoga } from 'graphql-yoga'
+import { useDisableIntrospection } from '@graphql-yoga/plugin-disable-introspection'
+
 import schema from './schema/schema';
 import ViteExpress from "vite-express";
 import {createContext} from "./context";
@@ -8,7 +10,9 @@ const app = express();
 
 const yoga = createYoga({
   schema, 
-  context: createContext
+  context: createContext,
+  plugins: [process.env.NODE_ENV === 'production' && useDisableIntrospection()],
+  graphiql: process.env.NODE_ENV === 'development'
 })
 
 app.use(yoga.graphqlEndpoint, yoga)

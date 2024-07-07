@@ -1,14 +1,17 @@
-
+import { writeFileSync } from 'fs'
 import type { CodegenConfig } from '@graphql-codegen/cli';
-import { printSchema } from 'graphql';
+import { printSchema, lexicographicSortSchema } from 'graphql';
 import schema from './src/server/schema/schema';
+
+const schemaAsString = printSchema(lexicographicSortSchema(schema));
+writeFileSync('./schema.graphql', schemaAsString);
 
 const config: CodegenConfig = {
   schema: printSchema(schema),
-  documents: ['src/**/*.tsx'],
+  documents: ['src/client/**/*.tsx', 'src/client/**/*.ts'],
   ignoreNoDocuments: true,
   generates: {
-    './src/gql/': {
+    './src/client/gql/': {
       preset: 'client',
       plugins: [],
     },

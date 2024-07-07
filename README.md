@@ -17,6 +17,7 @@
 ## Stack
 #### Frontend:
 - [React](https://react.dev/) - The library for web and native user interfaces
+- [React Router](https://reactrouter.com/en/main/start/overview) - Routing library that enables dynamic, client-side navigation in React apps, improving responsiveness and performance
 - [TanStack Query](https://tanstack.com/query/latest) - Data-fetching library that simplifies data fetching and state management with automatic caching and efficient synchronization
 - [graphql-request](https://www.npmjs.com/package/graphql-request) - Minimal GraphQL client supporting Node and browsers for scripts or simple apps
   - Used in combination with TanStack Query and GraphQL-Codegen to provide fully-typed client-side GraphQL operations

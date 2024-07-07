@@ -32,7 +32,9 @@
     "baseUrl": "./src/",
     "paths": {
       "@gql": ["client/gql"],
-      "@requests/*": ["client/requests/*"]
+      "@requests/*": ["client/requests/*"],
+      "@views/*": ["client/views/*"],
+      "@components/*": ["client/components/*"]
     }
 
     //  from vite-express

@@ -1,7 +1,7 @@
 import { writeFileSync } from 'fs'
 import type { CodegenConfig } from '@graphql-codegen/cli';
 import { printSchema, lexicographicSortSchema } from 'graphql';
-import schema from './src/server/schema/schema';
+import schema from './src/server/schema';
 
 const schemaAsString = printSchema(lexicographicSortSchema(schema));
 writeFileSync('./schema.graphql', schemaAsString);

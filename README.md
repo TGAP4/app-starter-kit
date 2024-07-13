@@ -17,6 +17,7 @@
 ## Stack
 #### Frontend:
 - [React](https://react.dev/) - The library for web and native user interfaces
+- [Chakra UI](https://v2.chakra-ui.com/) - React component library for building accessible, customizable, and responsive web interfaces
 - [React Router](https://reactrouter.com/en/main/start/overview) - Routing library that enables dynamic, client-side navigation in React apps, improving responsiveness and performance
 - [TanStack Query](https://tanstack.com/query/latest) - Data-fetching library that simplifies data fetching and state management with automatic caching and efficient synchronization
 - [graphql-request](https://www.npmjs.com/package/graphql-request) - Minimal GraphQL client supporting Node and browsers for scripts or simple apps
@@ -36,6 +37,7 @@
 - [Vite](https://vitejs.dev/) - Modern build tool and development server that offers significantly faster build times and optimized code sizes
 - [Render](https://render.com/)- Unified cloud to build and run apps with free TLS certificates, global CDN, private networks and auto deploys from Git
 - [Docker](https://www.docker.com/) - Platform that uses containerization to package, distribute, and run applications consistently across environments
+  - The development server can be run without it (i.e. `bun dev`) but it is required to deploy to Render with Bun
 - [GraphQL-Codegen](https://the-guild.dev/graphql/codegen) - Automatically generates typed client-side code from GraphQL schemas, ensuring consistency across the codebase
 - [gql.tada](https://gql-tada.0no.co/) - Document authoring library that provides instant type inference for GraphQL queries and fragments
 

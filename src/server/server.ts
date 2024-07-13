@@ -1,7 +1,7 @@
 import express from "express";
 import { createYoga } from 'graphql-yoga'
 import { useDisableIntrospection } from '@graphql-yoga/plugin-disable-introspection'
-import schema from './schema/schema';
+import schema from './schema';
 import ViteExpress from "vite-express";
 import {createContext} from "./context";
 import router from './router'

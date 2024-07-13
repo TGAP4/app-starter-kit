@@ -3,17 +3,17 @@ import {NextFunction, Request, Response, Router} from 'express'
 const router = Router()
 
 const myMiddleware = (req: Request, res: Response, next: NextFunction) => {
-  console.log(req, res)
+  // Do middleware stuff 
   next()
 }
 router.use(myMiddleware)
 
-router.route('/item')
+router.route('/user')
   .get((_, res) => {
-    res.send('Get an item')
+    res.send('Get an user')
   })
   .post((_, res) => {
-    res.send('Create an item')
+    res.send('Create an user')
   })
 
 export default router

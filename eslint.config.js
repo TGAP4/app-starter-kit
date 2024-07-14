@@ -37,7 +37,6 @@ export default [
     rules: {
       "@graphql-eslint/no-anonymous-operations": "error",
       "@graphql-eslint/no-duplicate-fields": "error",
-      "prettier/prettier": "error",
     },
   },
   {

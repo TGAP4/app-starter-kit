@@ -6,8 +6,8 @@ builder.queryFields((t) => ({
     args: {
       authorId: t.arg.int(),
     },
-    resolve: (query, root, args, ctx, info) => {
-      return prisma.post.findMany({
+    resolve: async (query, root, args, ctx, info) => {
+      return await prisma.post.findMany({
         ...query,
         ...(args.authorId && { where: { authorId: args.authorId } }),
       });

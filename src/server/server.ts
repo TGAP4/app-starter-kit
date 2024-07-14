@@ -4,7 +4,7 @@ import { useDisableIntrospection } from "@graphql-yoga/plugin-disable-introspect
 import schema from "./schema";
 import ViteExpress from "vite-express";
 import { createContext } from "./context";
-import router from "./router";
+import apiRouter from "./apiRouter";
 
 const app = express();
 
@@ -17,7 +17,7 @@ const yoga = createYoga({
 
 app.use(yoga.graphqlEndpoint, yoga);
 
-app.use(router);
+app.use("/api", apiRouter);
 
 app.get("/hello", (_, res) => {
   res.send("Hello Vite + React + TypeScript!asdf");

@@ -1,20 +1,20 @@
 import { NextFunction, Request, Response, Router } from "express";
 
-const router = Router();
+const apiRouter = Router();
 
 const myMiddleware = (req: Request, res: Response, next: NextFunction) => {
   // Do middleware stuff
   next();
 };
-router.use(myMiddleware);
+apiRouter.use(myMiddleware);
 
-router
+apiRouter
   .route("/user")
   .get((_, res) => {
-    res.send("Get an user");
+    res.send("Get a user");
   })
   .post((_, res) => {
-    res.send("Create an user");
+    res.send("Create a user");
   });
 
-export default router;
+export default apiRouter;

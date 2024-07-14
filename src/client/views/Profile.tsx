@@ -29,13 +29,12 @@ const Profile = () => {
         variables: { firstName, lastName },
       }),
   });
-  console.log(data, isPending);
 
   return (
     <>
       {(() => {
         if (isPending) return <div>LOADING</div>;
-        if (!data) {
+        if (!data?.getUser) {
           return (
             <Button
               onClick={() =>

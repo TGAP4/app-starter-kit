@@ -53,6 +53,8 @@
 
 ## Additional Resources
 
+- [Chakra components docs](https://v2.chakra-ui.com/docs/components)
+- [Prisma CRUD docs](https://www.prisma.io/docs/orm/prisma-client/queries/crud)
 - [Bun-Docker deployment on Render](https://github.com/render-examples/bun-docker)
 - [Vite-Express integration](https://github.com/szymmis/vite-express)
 - [Why use Vite when Bun is also a bundler?](https://dev.to/this-is-learning/why-use-vite-when-bun-is-also-a-bundler-vite-vs-bun-2723)

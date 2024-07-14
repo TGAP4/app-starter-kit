@@ -4,6 +4,7 @@ const apiRouter = Router();
 
 const myMiddleware = (req: Request, res: Response, next: NextFunction) => {
   // Do middleware stuff
+  console.log(req);
   next();
 };
 apiRouter.use(myMiddleware);

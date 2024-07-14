@@ -11,7 +11,7 @@ COPY . .
 
 RUN bun run prisma generate
 
-RUN bun run migrate
+RUN ls -la ./prisma/
 
 RUN bun run build
 

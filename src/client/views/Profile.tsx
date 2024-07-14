@@ -10,7 +10,7 @@ const Profile = () => {
   const { isPending, data } = useQuery({
     queryKey: [`profilePageUser-${userId}`],
     queryFn: async () =>
-      gqlClient.request({
+      await gqlClient.request({
         document: getUser,
         variables: { id: Number(userId) },
       }),
@@ -23,11 +23,14 @@ const Profile = () => {
     }: {
       firstName: string;
       lastName: string;
-    }) =>
-      gqlClient.request({
+    }) => {
+      console.log(gqlClient, import.meta.env.VITE_GRAPHQL_ENDPOINT);
+
+      return await gqlClient.request({
         document: createUser,
         variables: { firstName, lastName },
-      }),
+      });
+    },
   });
 
   const {

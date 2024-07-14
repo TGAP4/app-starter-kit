@@ -41,6 +41,7 @@
 - [TypeScript](https://www.typescriptlang.org/) - Strongly-typed superset of JavaScript that enhances code quality and developer productivity
 - [Bun](https://bun.sh/) - Complete toolkit for building JavaScript apps, including a package manager, test runner, and bundler
 - [Vite](https://vitejs.dev/) - Modern build tool and development server that offers significantly faster build times and optimized code sizes
+- [SQLite](https://www.sqlite.org/) - Lightweight, serverless database engine for fast, reliable data storage in embedded systems and small applications
 - [Render](https://render.com/)- Unified cloud to build and run apps with free TLS certificates, global CDN, private networks and auto deploys from Git
 - [Docker](https://www.docker.com/) - Platform that uses containerization to package, distribute, and run applications consistently across environments
   - The development server can be run without it (i.e. `bun dev`) but it is required to deploy to Render with Bun
@@ -52,6 +53,6 @@
 
 ## Additional Resources
 
-[Bun-Docker deployment on Render](https://github.com/render-examples/bun-docker)
-[Vite-Express integration](https://github.com/szymmis/vite-express)
-[Why use Vite when Bun is also a bundler?](https://dev.to/this-is-learning/why-use-vite-when-bun-is-also-a-bundler-vite-vs-bun-2723)
+- [Bun-Docker deployment on Render](https://github.com/render-examples/bun-docker)
+- [Vite-Express integration](https://github.com/szymmis/vite-express)
+- [Why use Vite when Bun is also a bundler?](https://dev.to/this-is-learning/why-use-vite-when-bun-is-also-a-bundler-vite-vs-bun-2723)

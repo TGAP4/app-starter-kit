@@ -11,6 +11,8 @@ COPY . .
 
 RUN bun run prisma generate
 
+RUN bun run migrate
+
 RUN bun run build
 
 CMD bun start

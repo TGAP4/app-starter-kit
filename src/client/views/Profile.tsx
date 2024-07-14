@@ -2,7 +2,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import gqlClient from "@requests/gqlClient";
 import { getUser, createUser } from "@requests/user";
 import { useParams } from "react-router-dom";
-import { Button } from "@chakra-ui/react";
+import { Box, Button } from "@chakra-ui/react";
 
 const Profile = () => {
   const { userId } = useParams();
@@ -31,7 +31,7 @@ const Profile = () => {
   });
 
   return (
-    <>
+    <Box w="fit-content" m="25vh auto 0">
       {(() => {
         if (isPending) return <div>LOADING</div>;
         if (!data?.getUser) {
@@ -40,6 +40,7 @@ const Profile = () => {
               onClick={() =>
                 mutation.mutate({ firstName: "Joe", lastName: "Bob" })
               }
+              isLoading={mutation.isPending}
             >
               Create User
             </Button>
@@ -47,7 +48,7 @@ const Profile = () => {
         }
         return <div>Name: {data.getUser?.fullName}</div>;
       })()}
-    </>
+    </Box>
   );
 };
 

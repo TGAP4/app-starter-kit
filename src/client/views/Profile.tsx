@@ -23,31 +23,12 @@ const Profile = () => {
     }: {
       firstName: string;
       lastName: string;
-    }) => {
-      console.log(gqlClient, import.meta.env.VITE_GRAPHQL_ENDPOINT);
-
-      return await gqlClient.request({
+    }) =>
+      await gqlClient.request({
         document: createUser,
         variables: { firstName, lastName },
-      });
-    },
+      }),
   });
-
-  const {
-    status,
-    data: testData,
-    refetch,
-  } = useQuery({
-    queryKey: ["todos"],
-    queryFn: async () => {
-      const response = await fetch("/api/user");
-      const json = await response.json();
-      console.log(json);
-      return json;
-    },
-    enabled: false,
-  });
-  console.log(status, testData);
 
   return (
     <Box w="fit-content" m="25vh auto 0">
@@ -67,7 +48,6 @@ const Profile = () => {
         }
         return <div>Name: {data.getUser?.fullName}</div>;
       })()}
-      <Button onClick={() => refetch()}>API</Button>
     </Box>
   );
 };

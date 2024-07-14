@@ -15,6 +15,7 @@ RUN bun run prisma generate
 
 RUN bun run build
 
+# Use secret file stored in Render
 RUN --mount=type=secret,id=_env,dst=/etc/secrets/.env cat /etc/secrets/.env
 
 CMD bun start

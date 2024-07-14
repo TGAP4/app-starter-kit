@@ -11,9 +11,8 @@ const app = express();
 const yoga = createYoga({
   schema,
   context: createContext,
-  cors: false,
-  // plugins: [process.env.NODE_ENV === "production" && useDisableIntrospection()],
-  // graphiql: process.env.NODE_ENV === "development",
+  plugins: [process.env.NODE_ENV === "production" && useDisableIntrospection()],
+  graphiql: process.env.NODE_ENV === "development",
 });
 
 app.use(yoga.graphqlEndpoint, yoga);

@@ -4,6 +4,7 @@
 
 - Create a new repository using this template
 - Create a new Web Service on Render and connect to the GitHub repository. Select Docker as the language, and deploy
+  - Add any environment variables to a [secret file](https://docs.render.com/configure-environment-variables#secret-files)
 - Clone the repository locally, run `bun install` to install dependencies, then `bun run prisma generate` to generate the Prisma Client
 
 ## How-To

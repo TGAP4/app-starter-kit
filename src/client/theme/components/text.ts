@@ -1,23 +1,22 @@
-// Text doesn't seem to be exported from @chakra-ui/react/theme/components, so we need to 
+// Text doesn't seem to be exported from @chakra-ui/react/theme/components, so we need to
 // declare all the properties explicitly
 
 export default {
   baseStyle: {
-    lineHeight: '1.7'
+    lineHeight: "1.7",
   },
   sizes: {
     sm: {
-      fontSize: 'sm',
+      fontSize: "sm",
     },
     md: {
-      fontSize: 'md',
-
+      fontSize: "md",
     },
     lg: {
-      fontSize: 'lg',
+      fontSize: "lg",
     },
   },
   defaultProps: {
-    size: 'md'
-  }
-}
+    size: "md",
+  },
+};

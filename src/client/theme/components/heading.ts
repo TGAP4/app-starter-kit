@@ -1,9 +1,7 @@
-import {theme as chakraTheme} from '@chakra-ui/react'
+import { theme as chakraTheme } from "@chakra-ui/react";
 
+const { Heading } = chakraTheme.components;
 
-const { Heading } = chakraTheme.components
-
-export default  {
+export default {
   ...Heading,
-}
-
+};

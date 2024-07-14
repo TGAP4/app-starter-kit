@@ -1,13 +1,13 @@
-import SchemaBuilder from '@pothos/core';
-import PrismaPlugin from '@pothos/plugin-prisma';
-import type PrismaTypes from '@pothos/plugin-prisma/generated';
-import { PrismaClient } from '@prisma/client';
-import {GraphQLContext} from '../context';
+import SchemaBuilder from "@pothos/core";
+import PrismaPlugin from "@pothos/plugin-prisma";
+import type PrismaTypes from "@pothos/plugin-prisma/generated";
+import { PrismaClient } from "@prisma/client";
+import { GraphQLContext } from "../context";
 
 export const prisma = new PrismaClient({});
 
 const builder = new SchemaBuilder<{
-  Context: GraphQLContext
+  Context: GraphQLContext;
   PrismaTypes: PrismaTypes;
 }>({
   plugins: [PrismaPlugin],
@@ -16,8 +16,8 @@ const builder = new SchemaBuilder<{
     // Use where clause from prismaRelatedConnection for totalCount (will true by default in next major version)
     filterConnectionTotalCount: true,
     // Warn when not using a query parameter correctly
-    onUnusedQuery: process.env.NODE_ENV === 'production' ? null : 'warn',
+    onUnusedQuery: process.env.NODE_ENV === "production" ? null : "warn",
   },
 });
 
-export default builder
+export default builder;

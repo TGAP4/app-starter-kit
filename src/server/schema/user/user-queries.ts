@@ -1,8 +1,8 @@
-import builder, {prisma} from '../builder'
+import builder, { prisma } from "../builder";
 
 builder.queryFields((t) => ({
   user: t.prismaField({
-    type: 'User',
+    type: "User",
     args: {
       id: t.arg.int({ required: true }),
     },
@@ -11,5 +11,5 @@ builder.queryFields((t) => ({
         ...query,
         where: { id: args.id },
       }),
-  })
+  }),
 }));

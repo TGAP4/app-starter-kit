@@ -1,12 +1,11 @@
-import {theme as chakraTheme} from '@chakra-ui/react'
+import { theme as chakraTheme } from "@chakra-ui/react";
 
+const { Button } = chakraTheme.components;
 
-const { Button } = chakraTheme.components
-
-export default  {
+export default {
   ...Button,
   defaultProps: {
     ...Button.defaultProps,
-    colorScheme: 'blue'
+    colorScheme: "blue",
   },
-}
+};

@@ -1,18 +1,45 @@
-import { Link } from "react-router-dom";
-import { Heading, Button, Text, Box } from "@chakra-ui/react";
+import { Button, Heading, Text } from "@chakra-ui/react";
+import { createUser, getUser } from "@requests/user";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import styled from "styled-components";
 
 const HomePage = () => {
+  const { isPending, data } = useQuery({
+    queryKey: ["firstUser"],
+    queryFn: () => getUser(1),
+  });
+
+  const mutation = useMutation({
+    mutationFn: createUser,
+  });
+
   return (
-    <Box m="15vh auto 0" w="fit-content">
+    <Container>
       <Heading>Hello World</Heading>
-      <Text marginTop="40px">My awesome text</Text>
-      <Link to="/users/1">
-        <Button variant="solid" marginTop="40px">
-          Link To User #1&apos;s Profile
-        </Button>
-      </Link>
-    </Box>
+      <Text>React-Express-GraphQL Fullstack Starter Kit (with examples)</Text>
+      <div>
+        {isPending ? (
+          <div>LOADING</div>
+        ) : (
+          <div>Name: {data?.getUser?.fullName}</div>
+        )}
+      </div>
+      <Button
+        onClick={() => mutation.mutate({ firstName: "Joe", lastName: "Bob" })}
+        isLoading={mutation.isPending}
+      >
+        Create User
+      </Button>
+    </Container>
   );
 };
 
 export default HomePage;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin-top: 20vh;
+`;

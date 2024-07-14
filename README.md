@@ -23,6 +23,8 @@
 
 - [React](https://react.dev/) - The library for web and native user interfaces
 - [Chakra UI](https://v2.chakra-ui.com/) - React component library for building accessible, customizable, and responsive web interfaces
+- [styled-components](https://styled-components.com/) - CSS-in-JS library offering scoped styling, dynamic theming, and better code organization
+  - This is used to give more granular control and to keep styles and JSX separate
 - [React Router](https://reactrouter.com/en/main/start/overview) - Routing library that enables dynamic, client-side navigation in React apps, improving responsiveness and performance
 - [TanStack Query](https://tanstack.com/query/latest) - Data-fetching library that simplifies data fetching and state management with automatic caching and efficient synchronization
 - [graphql-request](https://www.npmjs.com/package/graphql-request) - Minimal GraphQL client supporting Node and browsers for scripts or simple apps

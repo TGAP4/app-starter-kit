@@ -1,19 +1,8 @@
 type Mutation {
-  patchUser(firstName: String, id: Int!, lastName: String): User!
-  postPost(content: String!, title: String!, userId: Int!): Post!
   postUser(firstName: String!, lastName: String!): User!
 }
 
-type Post {
-  author: User!
-  author_id: Int!
-  firstName: String!
-  id: ID!
-  lastName: String!
-}
-
 type Query {
-  getPosts(authorId: Int): [Post!]!
   getUser(id: Int!): User
 }
 
@@ -22,5 +11,4 @@ type User {
   fullName: String!
   id: ID!
   lastName: String!
-  posts: [Post!]!
 }

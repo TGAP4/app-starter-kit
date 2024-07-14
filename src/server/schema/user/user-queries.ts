@@ -8,14 +8,10 @@ builder.queryFields((t) => ({
       id: t.arg.int({ required: true }),
     },
     resolve: async (query, root, args, ctx, info) => {
-      try {
-        return await prisma.user.findUniqueOrThrow({
-          ...query,
-          where: { id: args.id },
-        });
-      } catch (e) {
-        return null;
-      }
+      return await prisma.user.findUnique({
+        ...query,
+        where: { id: args.id },
+      });
     },
   }),
 }));

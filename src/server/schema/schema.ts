@@ -1,6 +1,5 @@
 import builder from "./builder";
 import "./user";
-import "./post";
 
 builder.queryType({});
 builder.mutationType({});

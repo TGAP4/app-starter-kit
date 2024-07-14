@@ -1,6 +1,6 @@
 import { initContextCache } from "@pothos/core";
-import { prisma } from "./schema/builder";
 import { User } from "@prisma/client";
+import { prisma } from "./schema/builder";
 
 export type GraphQLContext = {
   currentUser: User | null;

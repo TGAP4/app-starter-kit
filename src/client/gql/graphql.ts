@@ -18,23 +18,7 @@ export type Scalars = {
 
 export type Mutation = {
   __typename?: 'Mutation';
-  patchUser: User;
-  postPost: Post;
   postUser: User;
-};
-
-
-export type MutationPatchUserArgs = {
-  firstName?: InputMaybe<Scalars['String']['input']>;
-  id: Scalars['Int']['input'];
-  lastName?: InputMaybe<Scalars['String']['input']>;
-};
-
-
-export type MutationPostPostArgs = {
-  content: Scalars['String']['input'];
-  title: Scalars['String']['input'];
-  userId: Scalars['Int']['input'];
 };
 
 
@@ -43,24 +27,9 @@ export type MutationPostUserArgs = {
   lastName: Scalars['String']['input'];
 };
 
-export type Post = {
-  __typename?: 'Post';
-  author: User;
-  author_id: Scalars['Int']['output'];
-  firstName: Scalars['String']['output'];
-  id: Scalars['ID']['output'];
-  lastName: Scalars['String']['output'];
-};
-
 export type Query = {
   __typename?: 'Query';
-  getPosts: Array<Post>;
   getUser?: Maybe<User>;
-};
-
-
-export type QueryGetPostsArgs = {
-  authorId?: InputMaybe<Scalars['Int']['input']>;
 };
 
 
@@ -74,7 +43,6 @@ export type User = {
   fullName: Scalars['String']['output'];
   id: Scalars['ID']['output'];
   lastName: Scalars['String']['output'];
-  posts: Array<Post>;
 };
 
 export type GetUserQueryQueryVariables = Exact<{

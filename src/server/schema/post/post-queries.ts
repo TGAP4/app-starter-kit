@@ -1,7 +1,7 @@
 import builder, { prisma } from "../builder";
 
 builder.queryFields((t) => ({
-  posts: t.prismaField({
+  getPosts: t.prismaField({
     type: ["Post"],
     args: {
       authorId: t.arg.int(),

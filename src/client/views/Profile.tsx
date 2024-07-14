@@ -1,7 +1,8 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import gqlClient from "@requests/gqlClient";
-import { getUser } from "@requests/user";
+import { getUser, createUser } from "@requests/user";
 import { useParams } from "react-router-dom";
+import { Button } from "@chakra-ui/react";
 
 const Profile = () => {
   const { userId } = useParams();
@@ -15,9 +16,38 @@ const Profile = () => {
       }),
   });
 
+  const mutation = useMutation({
+    mutationFn: async ({
+      firstName,
+      lastName,
+    }: {
+      firstName: string;
+      lastName: string;
+    }) =>
+      gqlClient.request({
+        document: createUser,
+        variables: { firstName, lastName },
+      }),
+  });
+  console.log(data, isPending);
+
   return (
     <>
-      {isPending ? <div>LOADING</div> : <div>Name: {data?.user.fullName}</div>}
+      {(() => {
+        if (isPending) return <div>LOADING</div>;
+        if (!data) {
+          return (
+            <Button
+              onClick={() =>
+                mutation.mutate({ firstName: "Joe", lastName: "Bob" })
+              }
+            >
+              Create User
+            </Button>
+          );
+        }
+        return <div>Name: {data.getUser?.fullName}</div>;
+      })()}
     </>
   );
 };

@@ -1,7 +1,7 @@
 import builder, { prisma } from "../builder";
 
 builder.mutationFields((t) => ({
-  createPost: t.prismaField({
+  postPost: t.prismaField({
     type: "Post",
     args: {
       title: t.arg.string({ required: true }),

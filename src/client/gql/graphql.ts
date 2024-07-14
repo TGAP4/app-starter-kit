@@ -18,22 +18,29 @@ export type Scalars = {
 
 export type Mutation = {
   __typename?: 'Mutation';
-  createPost: Post;
-  updateUser: User;
+  patchUser: User;
+  postPost: Post;
+  postUser: User;
 };
 
 
-export type MutationCreatePostArgs = {
+export type MutationPatchUserArgs = {
+  firstName?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['Int']['input'];
+  lastName?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type MutationPostPostArgs = {
   content: Scalars['String']['input'];
   title: Scalars['String']['input'];
   userId: Scalars['Int']['input'];
 };
 
 
-export type MutationUpdateUserArgs = {
-  firstName?: InputMaybe<Scalars['String']['input']>;
-  id: Scalars['Int']['input'];
-  lastName?: InputMaybe<Scalars['String']['input']>;
+export type MutationPostUserArgs = {
+  firstName: Scalars['String']['input'];
+  lastName: Scalars['String']['input'];
 };
 
 export type Post = {
@@ -47,17 +54,17 @@ export type Post = {
 
 export type Query = {
   __typename?: 'Query';
-  posts: Array<Post>;
-  user: User;
+  getPosts: Array<Post>;
+  getUser?: Maybe<User>;
 };
 
 
-export type QueryPostsArgs = {
+export type QueryGetPostsArgs = {
   authorId?: InputMaybe<Scalars['Int']['input']>;
 };
 
 
-export type QueryUserArgs = {
+export type QueryGetUserArgs = {
   id: Scalars['Int']['input'];
 };
 
@@ -70,12 +77,21 @@ export type User = {
   posts: Array<Post>;
 };
 
-export type UserQueryQueryVariables = Exact<{
+export type GetUserQueryQueryVariables = Exact<{
   id: Scalars['Int']['input'];
 }>;
 
 
-export type UserQueryQuery = { __typename?: 'Query', user: { __typename?: 'User', id: string, fullName: string } };
+export type GetUserQueryQuery = { __typename?: 'Query', getUser?: { __typename?: 'User', id: string, fullName: string } | null };
+
+export type CreateUserMutationMutationVariables = Exact<{
+  firstName: Scalars['String']['input'];
+  lastName: Scalars['String']['input'];
+}>;
 
 
-export const UserQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"userQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"user"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"fullName"}}]}}]}}]} as unknown as DocumentNode<UserQueryQuery, UserQueryQueryVariables>;
+export type CreateUserMutationMutation = { __typename?: 'Mutation', postUser: { __typename?: 'User', id: string } };
+
+
+export const GetUserQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getUserQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getUser"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"fullName"}}]}}]}}]} as unknown as DocumentNode<GetUserQueryQuery, GetUserQueryQueryVariables>;
+export const CreateUserMutationDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"createUserMutation"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"firstName"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"lastName"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"postUser"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"firstName"},"value":{"kind":"Variable","name":{"kind":"Name","value":"firstName"}}},{"kind":"Argument","name":{"kind":"Name","value":"lastName"},"value":{"kind":"Variable","name":{"kind":"Name","value":"lastName"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]} as unknown as DocumentNode<CreateUserMutationMutation, CreateUserMutationMutationVariables>;

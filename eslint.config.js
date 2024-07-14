@@ -41,6 +41,7 @@ export default [
   },
   {
     rules: {
+      "prettier/prettier": 0,
       "@typescript-eslint/no-unused-vars": 1,
       "react/react-in-jsx-scope": 0,
     },

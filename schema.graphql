@@ -1,6 +1,7 @@
 type Mutation {
-  createPost(content: String!, title: String!, userId: Int!): Post!
-  updateUser(firstName: String, id: Int!, lastName: String): User!
+  patchUser(firstName: String, id: Int!, lastName: String): User!
+  postPost(content: String!, title: String!, userId: Int!): Post!
+  postUser(firstName: String!, lastName: String!): User!
 }
 
 type Post {
@@ -12,8 +13,8 @@ type Post {
 }
 
 type Query {
-  posts(authorId: Int): [Post!]!
-  user(id: Int!): User!
+  getPosts(authorId: Int): [Post!]!
+  getUser(id: Int!): User
 }
 
 type User {

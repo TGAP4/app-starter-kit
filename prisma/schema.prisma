@@ -25,10 +25,10 @@ datasource db {
 // }
 
 model User {
-  id        Int    @id @default(autoincrement())
+  id        Int     @id @default(autoincrement())
   firstName String
   lastName  String
-  color     String
+  color     String?
   posts     Post[]
 }
 

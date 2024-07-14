@@ -11,17 +11,14 @@ const app = express();
 const yoga = createYoga({
   schema,
   context: createContext,
+  cors: false,
   // plugins: [process.env.NODE_ENV === "production" && useDisableIntrospection()],
-  graphiql: process.env.NODE_ENV === "development",
+  // graphiql: process.env.NODE_ENV === "development",
 });
 
 app.use(yoga.graphqlEndpoint, yoga);
 
 app.use("/api", apiRouter);
-
-app.get("/hello", (_, res) => {
-  res.send("Hello Vite + React + TypeScript!asdf");
-});
 
 ViteExpress.listen(app, 3000, () =>
   console.log("Server is listening on port 3000..."),

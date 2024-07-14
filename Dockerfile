@@ -11,8 +11,6 @@ COPY . .
 
 RUN bun run prisma generate
 
-RUN ls -la ./prisma/
-
 RUN bun run build
 
 CMD bun start

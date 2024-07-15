@@ -13,12 +13,13 @@ generator pothos {
   clientOutput = "@prisma/client"
 }
 
+// SQLite is good for prototyping but should be replaced with PostgreSQL when 
+// actually using/maintaining an app
 datasource db {
   provider = "sqlite"
   url      = "file:./dev.db"
 }
 
-// If using PostgreSQL
 // datasource db {
 //   provider = "postgresql"
 //   url      = env("DATABASE_URL")

@@ -1,6 +1,6 @@
-import { writeFileSync } from "fs";
 import type { CodegenConfig } from "@graphql-codegen/cli";
-import { printSchema, lexicographicSortSchema } from "graphql";
+import { writeFileSync } from "fs";
+import { lexicographicSortSchema, printSchema } from "graphql";
 import schema from "./src/server/schema";
 
 const schemaAsString = printSchema(lexicographicSortSchema(schema));
@@ -14,6 +14,14 @@ const config: CodegenConfig = {
     "./src/client/gql/": {
       preset: "client",
       plugins: [],
+      config: {
+        scalars: {
+          ID: {
+            input: "number",
+            output: "number",
+          },
+        },
+      },
     },
   },
   overwrite: true,

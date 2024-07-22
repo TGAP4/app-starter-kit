@@ -2,10 +2,10 @@ import { extendBaseTheme } from "@chakra-ui/react";
 import Button from "./components/button";
 import Heading from "./components/heading";
 import Text from "./components/text";
-import styles from "./styles";
+import STYLES from "./styles";
 
 const theme = extendBaseTheme({
-  ...styles,
+  ...STYLES,
   components: {
     Button,
     Heading,

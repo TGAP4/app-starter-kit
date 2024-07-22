@@ -8,8 +8,8 @@ export type GraphQLContext = {
 
 export const createContext = async (): Promise<GraphQLContext> => {
   return {
-    // // Adding this will prevent any issues if your server implementation
-    //     // copies or extends the context object before passing it to your resolvers
+    // Adding this will prevent any issues if your server implementation
+    // copies or extends the context object before passing it to your resolvers
     ...initContextCache(),
 
     currentUser: await prisma.user.findFirst({}),

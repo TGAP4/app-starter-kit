@@ -9,7 +9,7 @@ export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> =
 export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: { input: string; output: string; }
+  ID: { input: number; output: number; }
   String: { input: string; output: string; }
   Boolean: { input: boolean; output: boolean; }
   Int: { input: number; output: number; }
@@ -50,7 +50,7 @@ export type GetUserQueryQueryVariables = Exact<{
 }>;
 
 
-export type GetUserQueryQuery = { __typename?: 'Query', getUser?: { __typename?: 'User', id: string, fullName: string } | null };
+export type GetUserQueryQuery = { __typename?: 'Query', getUser?: { __typename?: 'User', id: number, fullName: string } | null };
 
 export type CreateUserMutationMutationVariables = Exact<{
   firstName: Scalars['String']['input'];
@@ -58,7 +58,7 @@ export type CreateUserMutationMutationVariables = Exact<{
 }>;
 
 
-export type CreateUserMutationMutation = { __typename?: 'Mutation', postUser: { __typename?: 'User', id: string } };
+export type CreateUserMutationMutation = { __typename?: 'Mutation', postUser: { __typename?: 'User', id: number } };
 
 
 export const GetUserQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getUserQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getUser"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"fullName"}}]}}]}}]} as unknown as DocumentNode<GetUserQueryQuery, GetUserQueryQueryVariables>;

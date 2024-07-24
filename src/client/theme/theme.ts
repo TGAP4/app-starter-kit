@@ -1,16 +1,10 @@
-import { extendBaseTheme } from "@chakra-ui/react";
-import Button from "./components/button";
-import Heading from "./components/heading";
-import Text from "./components/text";
+import { extendTheme } from "@chakra-ui/react";
+import COMPONENTS from "./components";
 import STYLES from "./styles";
 
-const theme = extendBaseTheme({
+const theme = extendTheme({
   ...STYLES,
-  components: {
-    Button,
-    Heading,
-    Text,
-  },
+  ...COMPONENTS,
 });
 
 export default theme;

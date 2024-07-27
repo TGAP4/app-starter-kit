@@ -16,15 +16,19 @@ const ErrorPage = () => {
   return (
     <Container>
       <Heading>Oops!</Heading>
-      <Text>Sorry, an unexpected error has occurred.</Text>
-      <Text>
-        <i>
-          {isRouteErrorResponse(error)
-            ? error.data.message || error.statusText
-            : "Unknown error message"}
-        </i>
-      </Text>
-      <Button onClick={() => navigate(-1)}>GO BACK</Button>
+      <Text size="lg">Sorry, an unexpected error has occurred.</Text>
+      {import.meta.env.VITE_NODE_ENV === "development" && (
+        <ErrorMessage>
+          <i>
+            {isRouteErrorResponse(error)
+              ? error.data.message || error.statusText
+              : String(error)}
+          </i>
+        </ErrorMessage>
+      )}
+      <Button onClick={() => navigate(-1)} mt="10px">
+        GO BACK
+      </Button>
     </Container>
   );
 };
@@ -36,5 +40,9 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 30px;
-  margin-top: 20vh;
+  padding: 20vh 20px 0;
+`;
+const ErrorMessage = styled.div`
+  max-width: 600px;
+  text-align: center;
 `;
